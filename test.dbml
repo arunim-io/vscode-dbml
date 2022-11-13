@@ -1,0 +1,20 @@
+Table User {
+  id int [pk, increment]
+  first_name varchar
+  last_name varchar
+  username varchar
+  email email
+  password varchar
+  is_activated boolean
+  activation_date datetime
+  phone_number int [ref: - Phone.id]
+  birth_date datetime
+
+  // address int [ref: - Address.id]
+}
+
+Table Phone {
+  id int [pk, increment]
+  number varchar
+  ext varchar
+}

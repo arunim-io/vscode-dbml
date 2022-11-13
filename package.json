@@ -1,34 +1,34 @@
 {
-	"name": "dbml",
-	"displayName": "DBML",
-	"description": "DBML Support",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.73.0"
-	},
-	"categories": [
-		"Programming Languages"
-	],
-	"contributes": {
-		"languages": [
-			{
-				"id": "dbml",
-				"aliases": [
-					"DBML",
-					"dbml"
-				],
-				"extensions": [
-					".dbml"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "dbml",
-				"scopeName": "source.dbml",
-				"path": "./syntaxes/dbml.tmLanguage.json"
-			}
-		]
-	}
+  "name": "dbml",
+  "displayName": "DBML",
+  "description": "DBML Support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "dbml",
+        "aliases": [
+          "DBML",
+          "dbml"
+        ],
+        "extensions": [
+          ".dbml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dbml",
+        "scopeName": "source.dbml",
+        "path": "./syntaxes/dbml.tmLanguage.json"
+      }
+    ]
+  }
 }
