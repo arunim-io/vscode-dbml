@@ -11,6 +11,10 @@ Table User {
   birth_date datetime
 
   // address int [ref: - Address.id]
+  /* hello world */
+  /*
+    address int [ref: - Address.id]
+  */
 }
 
 Table Phone {
