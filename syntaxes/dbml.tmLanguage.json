@@ -4,43 +4,89 @@
   "scopeName": "source.dbml",
   "patterns": [
     { "include": "#comments" },
-    { "include": "#keywords" },
-    { "include": "#strings" }
+    { "include": "#strings" },
+    { "include": "#booleans" },
+    { "include": "#declarations" },
+    { "include": "#types" },
+    { "include": "#options" },
+    { "include": "#relationships" }
   ],
   "repository": {
     "comments": {
       "patterns": [
-        { "include": "#singleComment" },
-        { "include": "#multiComment" }
-      ]
-    },
-    "singleComment": {
-      "name": "comment.line.double-slash",
-      "match": "//.*$"
-    },
-    "multiComment": {
-      "name": "comment.block",
-      "begin": "\\/\\*",
-      "end": "\\*\\/"
-    },
-    "keywords": {
-      "patterns": [
         {
-          "name": "keyword.control.dbml",
-          "match": "\\b(if|while|for|return)\\b"
+          "name": "comment.line.dbml",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.dbml",
+          "begin": "\\/\\*",
+          "end": "\\*\\/"
         }
       ]
+    },
+    "declarations": {
+      "comment": "Main data structure tags",
+      "name": "keyword.control.dbml",
+      "match": "\\b([pP]roject|[tT]able|[rR]ef|[eE]num|[iI]ndexes|[nN]ote|database_type)\\b"
+    },
+    "types": {
+      "name": "entity.name.type.dbml",
+      "match": "\\b(as|by|bool|boolean|bit|blob|decimal|double|enum|float|long|longblob|longtext|medium|mediumblob|mediumint|mediumtext|time|timestamp|timestamptz|tinyblob|tinyint|tinytext|text|bigint|int|int1|int2|int3|int4|int8|integer|float|float4|float8|double|char|varbinary|varchar|varcharacter|precision|date|datetime|year|unsigned|signed|numeric|ucase|lcase|mid|len|round|rank|now|format|coalesce|ifnull|isnull|nvl)\\b"
+    },
+    "options": {
+      "match": "\\b(?i)(note|primary|key|pk|not|null|unique|default|increment)\\b",
+      "name": "variable.language.dbml"
+    },
+    "booleans": {
+      "name": "constant.language.dbml",
+      "match": "\\b(true|false)\\b"
     },
     "strings": {
-      "name": "string.quoted.double.dbml",
-      "begin": "\"",
-      "end": "\"",
       "patterns": [
         {
-          "name": "constant.character.escape.dbml",
-          "match": "\\\\."
+          "name": "string.quoted.single.dbml",
+          "begin": "'''",
+          "end": "'''",
+          "patterns": [
+            {
+              "name": "constant.character.escape.dbml",
+              "match": "\\\\'''"
+            },
+            { "include": "#escapes" },
+            {
+              "name": "constant.character.escape.dbml",
+              "match": "\\\\"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.dbml",
+          "begin": "'",
+          "end": "'",
+          "patterns": [{ "include": "#escapes" }]
+        },
+        {
+          "name": "string.quoted.double.dbml",
+          "begin": "[\"]",
+          "end": "[\"]",
+          "patterns": [{ "include": "#escapes" }]
+        },
+        {
+          "name": "string.quoted.single.dbml",
+          "begin": "[`]",
+          "end": "[`]",
+          "patterns": [{ "include": "#escapes" }]
         }
       ]
+    },
+    "escapes": {
+      "name": "constant.character.escape.dbml",
+      "match": "\\\\."
+    },
+    "relationships": {
+      "name": "keyword.operator.dbml",
+      "match": "[<>\\-]"
     }
   }
 }

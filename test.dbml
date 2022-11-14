@@ -1,3 +1,8 @@
+Project example {
+  database_type: ''
+  Note: ''
+}
+
 Table User {
   id int [pk, increment]
   first_name varchar
@@ -5,7 +10,7 @@ Table User {
   username varchar
   email email
   password varchar
-  is_activated boolean
+  is_activated boolean [default: false]
   activation_date datetime
   phone_number int [ref: - Phone.id]
   birth_date datetime
@@ -18,7 +23,11 @@ Table User {
 }
 
 Table Phone {
-  id int [pk, increment]
+  id int
   number varchar
   ext varchar
+
+  indexes {
+    id [pk, increment]
+  }
 }
